@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beyonds Threads | Order Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <h1 class="brand">Beyonds Threads</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="table.html">Price List</a>
+    <a href="form.html">Order Form</a>
+    <a href="about.html">About Us</a>
+  </nav>
+</header>
+
+<!-- FORM PAGE MAIN SECTION -->
+<section class="form-section">
+
+  <!-- RIGHT: FORM -->
+  <div class="form-box">
+    <h2>Order Details</h2>
+
+    <form class="order-form">
+      <label>Full Name</label>
+      <input type="text" placeholder="Your name" required>
+
+      <label>Email Address</label>
+      <input type="email" placeholder="your@email.com" required>
+
+      <label>Select Product</label>
+      <select required>
+        <option value="">-- Choose an option --</option>
+        <option>Embroidered Hoodie</option>
+        <option>Tote Bag</option>
+        <option>Gift Box</option>
+      </select>
+
+      <label>Do you want customization?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="custom" required> Yes</label>
+        <label><input type="radio" name="custom"> No</label>
+      </div>
+
+      <label>Additional Message</label>
+      <textarea rows="4" placeholder="Any specific design or color preference"></textarea>
+
+      <button type="submit">Submit Order</button>
+    </form>
+  </div>
+
+</section>
+
+<footer>
+  <p>© 2026 Beyonds Threads</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

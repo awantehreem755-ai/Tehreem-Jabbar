@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Threads | Price List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header Section with Navigation -->
+<header class="header">
+    <div class="container">
+        <h1 class="brand">BEYONDS THREADS - Price List</h1>
+        <!-- Navigation Bar -->
+        <nav>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="table.html" class="nav-link active">Price List</a>
+            <a href="form.html" class="nav-link">Order Form</a>
+            <a href="about.html" class="nav-link">About Us</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Price Table Section -->
+<section class="price-table">
+    <h2>Our Collections</h2>
+
+    <div id="product-list" class="category product-list">
+        <!-- Dynamic product content will be injected here based on the selected category -->
+    </div>
+</section>
+
+<footer>
+    <p>All products are handmade. Prices may vary based on thread color, design complexity, and delivery time.</p>
+</footer>
+
+<script>
+    // Get the category from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+
+    // Define the products for each category
+    const products = {
+        "clothes": [
+            { name: "Embroidered Shirt", description: "Beautifully handcrafted shirt with detailed floral embroidery.", price: "₨ 6,500", image: "embroided shirt.jpg" },
+            { name: "Boho Chic Tunic", description: "Handcrafted boho tunic with vibrant embroidery.", price: "₨ 6,000", image: "boho.jpg" },
+            { name: "Custom Hoodie", description: "Personalized hoodie with your design.", price: "₨ 5,000", image: "hoodie.jpg" },
+            { name: "Embroidered Denim Jacket", description: "A trendy denim jacket with floral embroidery.", price: "₨ 9,000", image: "embroided denim jacket.jpg" },
+            { name: "Luxe Wool Sweater", description: "Warm and cozy wool sweater with hand-stitched details.", price: "₨ 7,500", image: "sweater.jpg" },
+                   ],
+        "tote-bags": [
+            { name: "Minimal Tote", description: "Simple, minimal design with embroidery.", price: "₨ 1,500", image: "minimal tote.jpg" },
+            { name: "Personalized Tote", description: "Add your name or design to this functional tote.", price: "₨ 2,200", image: "personalized tote.jpg" },
+            { name: "Large Canvas Tote", description: "Spacious with a custom design.", price: "₨ 3,000", image: "large canvas.jpg" },
+            { name: "Eco-Friendly Tote", description: "Made with sustainable materials.", price: "₨ 1,800", image: "eco.jpg" },
+            { name: "Winter Wool Tote", description: "A warm, woolen tote with custom embroidery.", price: "₨ 3,500", image: "winter wool.jpg" }
+        ],
+        "gift-boxes": [
+            { name: "Birthday Gift Box", description: "Tote + accessories + card.", price: "₨ 5,500", image: "birthday.jpg" },
+            { name: "Anniversary Box", description: "Customized items in a premium box.", price: "₨ 7,000", image: "annivarsary.jpg" },
+            { name: "Christmas Special Box", description: "Holiday-themed gift box with personalized items.", price: "₨ 6,200", image: "christmas.jpg" },
+           
+        ]
+    };
+
+    // Function to display products based on the selected category
+    function displayProducts() {
+        const productList = document.getElementById('product-list');
+        const selectedCategory = products[category];
+
+        if (selectedCategory) {
+            selectedCategory.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('product-item');
+                productDiv.innerHTML = `
+                    <img src="images/${product.image}" alt="${product.name}">
+                    <h4>${product.name}</h4>
+                    <p>${product.description}</p>
+                    <span class="price">${product.price}</span>
+                `;
+                productList.appendChild(productDiv);
+            });
+        } else {
+            productList.innerHTML = '<p>No products available for this category.</p>';
+        }
+    }
+
+    // Call the function to display products
+    displayProducts();
+</script>
+
+</body>
+</html>
